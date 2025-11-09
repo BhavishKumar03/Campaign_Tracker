@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campaign Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Campaign<span>Tracker</span></div>
+    <nav>
+      <button id="btn-show-login" class="btn ghost">Login</button>
+      <button id="btn-show-register" class="btn">Register</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="auth-area" class="card auth-card">
+      <div class="tabs">
+        <button id="tab-login" class="tab active">Login</button>
+        <button id="tab-register" class="tab">Register</button>
+        <button id="tab-forgot" class="tab">Forgot</button>
+      </div>
+
+      <div id="panel-login" class="panel">
+        <h2>Welcome back</h2>
+        <p class="muted">Sign in to manage your campaigns.</p>
+        <form id="form-login">
+          <label>Email<input type="email" id="login-email" required></label>
+          <label>Password<input type="password" id="login-password" required></label>
+          <div class="row">
+            <button type="submit" class="btn">Login</button>
+            <button type="button" id="link-forgot" class="link">Forgot password?</button>
+          </div>
+          <div id="login-msg" class="msg"></div>
+        </form>
+      </div>
+
+      <div id="panel-register" class="panel hidden">
+        <h2>Create account</h2>
+        <form id="form-register">
+          <label>Full name<input type="text" id="reg-name" required></label>
+          <label>Email<input type="email" id="reg-email" required></label>
+          <label>Password<input type="password" id="reg-password" required></label>
+          <label>Security question
+            <select id="reg-sec-question">
+              <option value="pet">What is your first pet's name?</option>
+              <option value="city">What city were you born in?</option>
+              <option value="school">What is your elementary school's name?</option>
+            </select>
+          </label>
+          <label>Answer<input type="text" id="reg-sec-answer" required></label>
+          <div class="row">
+            <button type="submit" class="btn">Register</button>
+          </div>
+          <div id="reg-msg" class="msg"></div>
+        </form>
+      </div>
+
+      <div id="panel-forgot" class="panel hidden">
+        <h2>Reset password</h2>
+        <form id="form-forgot-step1">
+          <label>Email<input type="email" id="forgot-email" required></label>
+          <div class="row">
+            <button type="submit" class="btn">Next</button>
+          </div>
+        </form>
+
+        <form id="form-forgot-step2" class="hidden">
+          <div id="forgot-question" class="muted">Question will appear here</div>
+          <label>Answer<input type="text" id="forgot-answer" required></label>
+          <label>New password<input type="password" id="forgot-newpass" required></label>
+          <div class="row">
+            <button type="submit" class="btn">Reset</button>
+          </div>
+        </form>
+
+        <div id="forgot-msg" class="msg"></div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="card hidden">
+      <div class="dash-header">
+        <h2 id="dash-welcome">Hello</h2>
+        <div class="stats">
+          <div class="stat-item">
+            <span id="total-count" class="pill">0</span>
+            <div class="muted">Total</div>
+          </div>
+          <div class="stat-item">
+            <span id="active-count" class="pill">0</span>
+            <div class="muted">Active</div>
+          </div>
+          <div class="stat-item">
+            <span id="paused-count" class="pill">0</span>
+            <div class="muted">Paused</div>
+          </div>
+        </div>
+        <div>
+          <button id="btn-logout" class="btn ghost">Logout</button>
+        </div>
+      </div>
+
+      <div class="card mini">
+        <h3>Add Campaign</h3>
+        <form id="form-campaign">
+          <label>Campaign name<input type="text" id="camp-name" required></label>
+          <label>Client name<input type="text" id="camp-client" required></label>
+          <label>Start date<input type="date" id="camp-start" required></label>
+          <label>End date<input type="date" id="camp-end" required></label>
+          <div id="end-hint" class="muted" style="margin-top:6px; font-size:0.85rem;"></div>
+          <label>Status
+            <select id="camp-status">
+              <option value="Active">Active</option>
+              <option value="Paused">Paused</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+          <div class="row">
+            <button type="submit" class="btn">Add</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card mini">
+        <div class="search-bar">
+          <input type="text" id="campaign-search" placeholder="Search campaigns..." class="search-input">
+          <select id="status-filter" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Paused">Paused</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="campaign-list" class="grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copyright">© 2025 Bhavish Kumar Puttur</div>
+      <div class="footer-email">
+        <a href="mailto:bhavishkumar1008@gmail.com" class="footer-link">bhavishkumar1008@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
